@@ -1,0 +1,26 @@
+{{extend 'layout.html'}}
+
+{{if len(community_names_ids) == 0:}}
+  <h3>You are not a member of any communities yet!</h3>
+{{else:}}
+  <h3>Your communities:</h3>
+  {{for name,id in community_names_ids:}}
+    {{=A(str(name), _class='btn', _href=URL('default', 'view_community', args=[id]))}}
+    <br>
+  {{pass}}
+{{pass}}
+
+<hr>
+
+<h3>Find a community:</h3>
+<p><i>put a textarea here</i></p> <!-- TODO it will do the cool ajax auto fill thing will possible communities appearing below...maybe -->
+
+<hr>
+
+{{=A("Create New Community", _class='btn', _href=URL('default', 'create_community'))}} <!--  _id="CreateCommunityButton", _name="CreateCommunityButton", --> <!-- TODO record how many / how often they are making communities to prevent spamming -->
+
+<script>
+$(document).ready(function() {
+  
+});
+</script>
